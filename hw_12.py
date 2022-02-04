@@ -5,6 +5,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def main_page():
+    """
+     Основная страница, выводит текст в зависимости от настройки "Online"
+    """
     settings = reading_settings()
     if settings["online"] is True:
         return "Приложение работает"
@@ -12,9 +15,12 @@ def main_page():
         return "Приложение не работает"
 
 
-@app.route('/candidate/<int:сid>/')
-def candidate_data(сid):
-    candidate = candidate_id(сid)
+@app.route('/candidate/<int:cid>/')
+def candidate_data(cid):
+    """
+    Выводит информацию о каждом кандидате из списка по ID в заданном формате
+    """
+    candidate = candidate_id(cid)
     candidate_info = f"""
             <h1>{candidate["name"]}</h1>
             <p>{candidate["position"]}</p>
@@ -25,46 +31,52 @@ def candidate_data(сid):
 
 
 @app.route('/list')
-
 def candidates_list():
+    """
+    Выводит список всех кандидатов
+    """
     candidates = reading_candidates()
     list_content = '<h1>Все кандидаты</h1>'
     for candidate in candidates:
         list_content += f"""
-            <p><a href ="/candidate{candidate["id"]}">{candidate["name"]}</a></p>
+            <p><a href ="/candidate/{candidate["id"]}">{candidate["name"]}</a></p>
             """
-        return list_content
+    return list_content
 
 @app.route('/search')
-
 def searching_by_name_page():
+    """
+    Выводит список кандидатов при поиске по имени
+    """
     name = request.args.get("name")
-    candidates = search_by_name(name)
-    candidates_number = len(candidates)
+    searched_candidates = search_by_name(name)
+    candidates_number = len(searched_candidates)
 
     search_content = f"<h2>Найдено кандидатов: {candidates_number}</h2>"
 
-    for candidate in candidates:
+    for candidate in searched_candidates:
         search_content += f"""
-            <p><a href="/candidate/{candidate["id"]}>{candidate["name"]}</a></p>
+            <p><a href="/candidate/{candidate["id"]}">{candidate["name"]}</a></p>
             """
     return search_content
 
 
 @app.route('/skill/<skill_name>')
-
 def searching_by_skill_page(skill_name):
-    candidates = search_by_skill(skill_name)
-    candidates_number = len(candidates)
+    """
+    Выводит список кандидатов при поиске по навыку
+    """
+    matching_candidates= search_by_skill(skill_name)
+    candidates_number = len(matching_candidates)
 
-    search_content = f"<h2>Найдено со скиллом {skill_name}: {candidates_number}</h2>"
+    search_skill_content = f"<h2>Найдено со скиллом {skill_name}: {candidates_number}</h2>"
 
-    for candidate in candidates:
-        search_content += f"""
-                <p><a href="/candidate/{candidate["id"]}>{candidate["name"]}</a></p>
+    for candidate in matching_candidates:
+        search_skill_content += f"""
+                <p><a href="/candidate/{candidate["id"]}">{candidate["name"]}</a></p>
                 """
 
-    return search_content
+    return search_skill_content
 
 app.run()
 

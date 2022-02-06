@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from functions import reading_candidates, reading_settings, candidate_id, search_by_name, search_by_skill
 
 app = Flask(__name__)
@@ -36,12 +36,8 @@ def candidates_list():
     Выводит список всех кандидатов
     """
     candidates = reading_candidates()
-    list_content = '<h1>Все кандидаты</h1>'
-    for candidate in candidates:
-        list_content += f"""
-            <p><a href ="/candidate/{candidate["id"]}">{candidate["name"]}</a></p>
-            """
-    return list_content
+    return render_template('list.html', candidates=candidates)
+
 
 @app.route('/search')
 def searching_by_name_page():

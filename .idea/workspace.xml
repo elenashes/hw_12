@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b74a2245-82cb-4859-a83a-cc756d6da1cf" name="Changes" comment="Финальная версия">
-      <change afterPath="$PROJECT_DIR$/templates/list.html" afterDir="false" />
+    <list default="true" id="b74a2245-82cb-4859-a83a-cc756d6da1cf" name="Changes" comment="добавление html шаблона для страницы &quot;list&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw_12.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw_12.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +108,21 @@
       <option name="project" value="LOCAL" />
       <updated>1643993417261</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="добавление html шаблона для страницы &quot;list&quot;">
+      <created>1644144137570</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1644144137570</updated>
+    </task>
+    <task id="LOCAL-00003" summary="добавление html шаблона для страницы &quot;list&quot;">
+      <created>1644144375976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1644144375976</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,6 +139,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Финальная версия" />
-    <option name="LAST_COMMIT_MESSAGE" value="Финальная версия" />
+    <MESSAGE value="добавление html шаблона для страницы &quot;list&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавление html шаблона для страницы &quot;list&quot;" />
   </component>
 </project>

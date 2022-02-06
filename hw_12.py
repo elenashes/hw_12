@@ -30,7 +30,7 @@ def candidate_data(cid):
     return candidate_info
 
 
-@app.route('/list')
+@app.route('/list/')
 def candidates_list():
     """
     Выводит список всех кандидатов
